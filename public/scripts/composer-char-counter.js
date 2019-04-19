@@ -4,11 +4,11 @@ $(document).ready(function () {
         var length = $(this).val().length;
         var length = maxLength - length;
         if (length < 0) {
-            $('#counter').text(length).addClass("negativeCounter")
+            $("#counter").text(length).addClass("negativeCounter")
             
         } else {
-            $('#counter').text(length).removeClass("negativeCounter")
-            $('#compose-tweet').text("Compose Tweet").removeClass("negativeCounter");
+            $("#counter").text(length).removeClass("negativeCounter")
+            $("#compose-tweet").text("Compose Tweet").removeClass("negativeCounter");
         
         }
     });

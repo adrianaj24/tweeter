@@ -15,7 +15,11 @@ function createTweetElement(tweet) {
             <p class="userhandle">${tweet.user.handle}</p>
         </header>
         <p class="tweet-area">${escape(tweet.content.text)}</p>
-        <footer class="footer">${jQuery.timeago(tweet.created_at)}</footer>  
+        <footer class="footer">${jQuery.timeago(tweet.created_at)}
+        <div class="icons"> <i class="fas fa-retweet"></i>
+        <i class="far fa-flag"></i>
+        <i class="far fa-heart"></i></div>
+        </footer>  
     </article>`;
 }; 
 
@@ -30,7 +34,7 @@ $(function () {
             $('#compose-tweet').text("Tweet exceeds character limit").addClass("negativeCounter");
             return;
         } else {
-            $('#counter').text("140");
+            $("#counter").text("140");
         }
 
         var tweet = $(this).serialize();
@@ -40,19 +44,21 @@ $(function () {
             data: tweet,
             success: (function () {
                 loadTweets();
-                $('#send-tweet').trigger("reset");
-
-                console.log('Success');
-            })
+                $("#send-tweet").trigger("reset");
+            }),
+            error: function (error) {
+                console.log("error", error)
+                $('#compose-tweet').text("Please Enter Tweet").addClass("negativeCounter");
+            }
         });
     });
 });    
 
 //Retrieves tweets from database
 function loadTweets() {
-    $.ajax('/tweets', { method: 'GET' })
+    $.ajax("/tweets", { method: "GET" })
     .done(function (data) {
-        $('.tweet-container').empty();
+        $(".tweet-container").empty();
         renderTweets(data);
     });
 };
@@ -61,7 +67,7 @@ function loadTweets() {
 function renderTweets(tweets) {
     for (let tweetData of tweets) {
         var $tweet = createTweetElement(tweetData);
-        $('.tweet-container').prepend($tweet);
+        $(".tweet-container").prepend($tweet);
     };
 };
 
