@@ -18,9 +18,9 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Screenshots
 
-! [MainPage Screenshot] https://imgur.com/P328Xl9
+![MainPage Screenshot](https://imgur.com/P328Xl9)
 
-! [Compose Tweet Screenshot] https://imgur.com/GUSHuVW
+![Compose Tweet Screenshot](https://imgur.com/GUSHuVW)
 
-! [Error Message Screenshot] https://imgur.com/kpvq7ZN
+![Error Message Screenshot](https://imgur.com/kpvq7ZN)
 
